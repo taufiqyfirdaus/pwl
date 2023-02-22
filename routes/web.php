@@ -5,6 +5,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -21,6 +25,8 @@ use App\Http\Controllers\ArticleController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+// Praktikum 1
 // Route::get('/', function () {
 //     echo "Selamat Datang";
 // });
@@ -32,6 +38,17 @@ use App\Http\Controllers\ArticleController;
 //     echo "Halaman Artikel dengan ID : $id";
 // });
 
+
+// Praktikum 2
+// Route::get('/', [HomeController::class, 'index']);
+// Route::get('/about', [AboutController::class, 'about']);
+// Route::get('/articles', [ArticleController::class, 'articles']);
+
+
+// Praktikum 3
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/category/{category_name}', [ProductController::class, 'index']);
+Route::get('/news/{news_name}', [NewsController::class, 'index']);
+Route::get('/program/{program_name}', [ProgramController::class, 'index']);
 Route::get('/about', [AboutController::class, 'about']);
-Route::get('/articles', [ArticleController::class, 'articles']);
+Route::resource('/contact-us', ContactController::class);
