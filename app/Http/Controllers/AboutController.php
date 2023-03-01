@@ -8,7 +8,10 @@ class AboutController extends Controller
 {
     //
     function about(){
-        echo "NIM  : 2141720124 <br>";
-        echo "Nama : Taufiqy Firdaus Jatu";
+      return view('layouts.about', [
+          'nim' => '2141720124',
+          'nama' => 'Taufiqy Firdaus J',
+          'kelas' => 'TI-2A'
+      ]);
     }
 }

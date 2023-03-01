@@ -7,12 +7,22 @@ use Illuminate\Http\Request;
 class ProgramController extends Controller
 {
     //
-    function index($program_name){
-        echo "Daftar Program $program_name";
-        echo "<ul>
-                <li>Program 1</li>
-                <li>Program 2</li>
-                <li>Program 3</li>
-             </ul>";
+    function index(){
+        return view ('layouts.program', [
+            'judul' => 'Program List',
+            'program' => ['sekolah', 'kantor']
+        ]);
+    }
+    function sekolah(){
+        return view ('layouts.program', [
+            'judul' => 'Program Sekolah',
+            'program' => ['akademik', 'ekstrakulikuler', 'magang']
+        ]);
+    }
+    function kantor(){
+        return view ('layouts.program', [
+            'judul' => 'Program Kantor',
+            'program' => ['pelatihan', 'pengembangan karir', 'keseimbangan kerja']
+        ]);
     }
 }

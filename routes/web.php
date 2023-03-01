@@ -9,6 +9,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PengalamanController;
 
 
 /*
@@ -47,8 +50,22 @@ use App\Http\Controllers\ContactController;
 
 // Praktikum 3
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/category/{category_name}', [ProductController::class, 'index']);
+// Route::get('/product', [ProductController::class, 'index']);
+Route::prefix('product')->group(function(){
+    Route::get('/air', [ProductController::class, 'air']);
+    Route::get('/tissue', [ProductController::class, 'tissue']);
+    Route::get('/', [ProductController::class, 'index']);
+});
 Route::get('/news/{news_name}', [NewsController::class, 'index']);
-Route::get('/program/{program_name}', [ProgramController::class, 'index']);
+// Route::get('/program/{program_name}', [ProgramController::class, 'index']);
+Route::prefix('program')->group(function(){
+    Route::get('/sekolah', [ProgramController::class, 'sekolah']);
+    Route::get('/kantor', [ProgramController::class, 'kantor']);
+    Route::get('/', [ProgramController::class, 'index']);
+});
 Route::get('/about', [AboutController::class, 'about']);
 Route::resource('/contact-us', ContactController::class);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/profile', [ProfileController::class, 'index']);
+Route::get('/pengalaman', [PengalamanController::class, 'index']);

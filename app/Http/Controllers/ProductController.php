@@ -7,14 +7,22 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     //
-    function index($category_name){
-        echo "Daftar Produk dengan Kategori $category_name";
-        echo "<ul>
-                <li>Product 1</li>
-                <li>Product 2</li>
-                <li>Product 3</li>
-                <li>Product 4</li>
-                <li>Product 5</li>
-             </ul>";
+    function index(){
+        return view ('layouts.product', [
+            'judul' => 'Product List',
+            'product' => ['air', 'tissue']
+        ]);
+    }
+    function air(){
+        return view ('layouts.product', [
+            'judul' => 'Product Air',
+            'product' => ['aqua', 'cleo', 'club']
+        ]);
+    }
+    function tissue(){
+        return view ('layouts.product', [
+            'judul' => 'Product Tissue',
+            'product' => ['multi', 'paseo', 'nice']
+        ]);
     }
 }
