@@ -17,14 +17,19 @@ class ArtikelSeeder extends Seeder
     {
         DB::table('artikel')->insert([
             [
-                'judul' => 'Belajar Web Bootstrap',
-                'penulis' => 'Fahri',
+                'judul' => 'Belajar Web ReactJS',
+                'penulis' => 'Whyna',
                 'tgl_terbit' => '2004-06-02'
             ],
             [
-                'judul' => 'Belajar php',
-                'penulis' => 'Denis',
-                'tgl_terbit' => '2012-12-12'
+                'judul' => 'Belajar Laravel',
+                'penulis' => 'Sandi',
+                'tgl_terbit' => '2004-06-02'
+            ],
+            [
+                'judul' => 'Belajar Database',
+                'penulis' => 'Heri',
+                'tgl_terbit' => '2004-06-02'
             ]
         ]);
     }
