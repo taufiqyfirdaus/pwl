@@ -13,6 +13,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\HobiController;
 
 
 /*
@@ -72,3 +73,4 @@ Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/pengalaman', [PengalamanController::class, 'index']);
 
 Route::get('/artikel', [ArtikelController::class, 'index']);
+Route::get('/hobi', [HobiController::class, 'index']);
