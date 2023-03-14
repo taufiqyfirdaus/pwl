@@ -14,6 +14,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\HobiController;
+use App\Http\Controllers\KeluargaController;
 
 
 /*
@@ -74,3 +75,4 @@ Route::get('/pengalaman', [PengalamanController::class, 'index']);
 
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/hobi', [HobiController::class, 'index']);
+Route::get('/keluarga', [KeluargaController::class, 'index']);
