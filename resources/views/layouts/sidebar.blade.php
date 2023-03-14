@@ -71,6 +71,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <a href="/matkul" class="nav-link">
+            <i class="nav-icon fas fa-align-left"></i>
+            <p>
+              Mata Kuliah
+            </p>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
