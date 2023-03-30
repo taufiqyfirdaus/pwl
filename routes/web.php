@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
@@ -16,7 +17,8 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MatkulController;
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,29 +54,35 @@ use App\Http\Controllers\MatkulController;
 // Route::get('/articles', [ArticleController::class, 'articles']);
 
 
-// Praktikum 3
-Route::get('/', [HomeController::class, 'index']);
-// Route::get('/product', [ProductController::class, 'index']);
-Route::prefix('product')->group(function(){
-    Route::get('/air', [ProductController::class, 'air']);
-    Route::get('/tissue', [ProductController::class, 'tissue']);
-    Route::get('/', [ProductController::class, 'index']);
-});
-Route::get('/news/{news_name}', [NewsController::class, 'index']);
-// Route::get('/program/{program_name}', [ProgramController::class, 'index']);
-Route::prefix('program')->group(function(){
-    Route::get('/sekolah', [ProgramController::class, 'sekolah']);
-    Route::get('/kantor', [ProgramController::class, 'kantor']);
-    Route::get('/', [ProgramController::class, 'index']);
-});
-Route::get('/about', [AboutController::class, 'about']);
-Route::resource('/contact-us', ContactController::class);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/profile', [ProfileController::class, 'index']);
-Route::get('/pengalaman', [PengalamanController::class, 'index']);
+Auth::routes();
+Route::get('logout', [LoginController::class, 'logout']);
+Route::middleware(['auth'])->group(function(){
+    // Praktikum 3
+    Route::get('/', [HomeController::class, 'index']);
+    // Route::get('/product', [ProductController::class, 'index']);
+    Route::prefix('product')->group(function(){
+        Route::get('/air', [ProductController::class, 'air']);
+        Route::get('/tissue', [ProductController::class, 'tissue']);
+        Route::get('/', [ProductController::class, 'index']);
+    });
+    Route::get('/news/{news_name}', [NewsController::class, 'index']);
+    // Route::get('/program/{program_name}', [ProgramController::class, 'index']);
+    Route::prefix('program')->group(function(){
+        Route::get('/sekolah', [ProgramController::class, 'sekolah']);
+        Route::get('/kantor', [ProgramController::class, 'kantor']);
+        Route::get('/', [ProgramController::class, 'index']);
+    });
+    Route::get('/about', [AboutController::class, 'about']);
+    Route::resource('/contact-us', ContactController::class);
 
-Route::get('/artikel', [ArtikelController::class, 'index']);
-Route::get('/hobi', [HobiController::class, 'index']);
-Route::get('/keluarga', [KeluargaController::class, 'index']);
-Route::get('/matkul', [MatkulController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/profile', [ProfileController::class, 'index']);
+    Route::get('/pengalaman', [PengalamanController::class, 'index']);
+
+    Route::get('/artikel', [ArtikelController::class, 'index']);
+    Route::get('/hobi', [HobiController::class, 'index']);
+    Route::get('/keluarga', [KeluargaController::class, 'index']);
+    Route::get('/matkul', [MatkulController::class, 'index']);
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
