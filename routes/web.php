@@ -18,7 +18,7 @@ use App\Http\Controllers\HobiController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
+// use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +58,7 @@ use App\Http\Controllers\Auth\RegisterController;
 Auth::routes();
 Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth'])->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     // Praktikum 3
     Route::get('/', [HomeController::class, 'index']);
     // Route::get('/product', [ProductController::class, 'index']);
@@ -85,4 +86,4 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/keluarga', [KeluargaController::class, 'index']);
     Route::get('/matkul', [MatkulController::class, 'index']);
 });
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
