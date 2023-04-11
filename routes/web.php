@@ -83,10 +83,13 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/pengalaman', [PengalamanController::class, 'index']);
 
     Route::get('/artikel', [ArtikelController::class, 'index']);
-    Route::get('/hobi', [HobiController::class, 'index']);
-    Route::get('/keluarga', [KeluargaController::class, 'index']);
-    Route::get('/matkul', [MatkulController::class, 'index']);
+    // Route::get('/hobi', [HobiController::class, 'index']);
+    // Route::get('/keluarga', [KeluargaController::class, 'index']);
+    // Route::get('/matkul', [MatkulController::class, 'index']);
 
     Route::resource('/mahasiswa', MahasiswaController::class);
+    Route::resource('/hobi', HobiController::class);
+    Route::resource('/keluarga', KeluargaController::class);
+    Route::resource('/matkul', MatkulController::class);
 });
 

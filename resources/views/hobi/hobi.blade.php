@@ -8,12 +8,6 @@
         <div class="col-sm-6">
           <h1></h1>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
-          </ol>
-        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -36,22 +30,38 @@
         </div>
       </div>
       <div class="card-body">
+        <a href="{{url('hobi/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
       <table class="table table-bordered tabel-hover">
       <thead>
         <tr>
-          <th>Id Hobi</th>
+          <th>No.</th>
           <th>Nama</th>
           <th>Hobi</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
-          @foreach ($hobi as $h)
-          <tr>
-            <td>{{ $h->id_hobi }}</td>
-            <td>{{ $h->nama }}</td>
-            <td>{{ $h->nama_hobi }}</td>
-          </tr>
-          @endforeach
+          @if($hbi->count() > 0)
+              @foreach($hbi as $i => $h)
+                <tr>
+                  <td>{{++$i}}</td>
+                  <td>{{ $h->nama }}</td>
+                  <td>{{ $h->nama_hobi }}</td>
+                  <td>
+                    <!-- Bikin tombol edit dan delete -->
+                    <a href="{{ url('/hobi/'. $h->id_hobi.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+
+                    <form method="POST" action="{{ url('/hobi/'.$h->id_hobi) }}" >
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                    </form>
+                  </td>
+                </tr>
+              @endforeach
+            @else
+              <tr><td colspan="6" class="text-center">Data tidak ada</td></tr>
+            @endif
           </tbody>
       </table>
       </div>

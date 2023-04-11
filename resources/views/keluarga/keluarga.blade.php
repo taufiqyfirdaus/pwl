@@ -8,12 +8,6 @@
         <div class="col-sm-6">
           <h1></h1>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
-          </ol>
-        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -36,28 +30,44 @@
         </div>
       </div>
       <div class="card-body">
+        <a href="{{url('keluarga/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
       <table class="table table-bordered tabel-hover">
       <thead>
         <tr>
-          <th>Id Keluarga</th>
+          <th>No.</th>
           <th>Nama</th>
           <th>Ayah</th>
           <th>No. Telepon Ayah</th>
           <th>Ibu</th>
           <th>No. Telepon Ibu</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
-          @foreach ($keluarga as $k)
-          <tr>
-            <td>{{ $k->id_keluarga }}</td>
-            <td>{{ $k->nama }}</td>
-            <td>{{ $k->nama_ayah }}</td>
-            <td>{{ $k->telp_ayah }}</td>
-            <td>{{ $k->nama_ibu }}</td>
-            <td>{{ $k->telp_ibu }}</td>
-          </tr>
-          @endforeach
+          @if($klg->count() > 0)
+              @foreach($klg as $i => $k)
+                <tr>
+                  <td>{{++$i}}</td>
+                  <td>{{ $k->nama }}</td>
+                  <td>{{ $k->nama_ayah }}</td>
+                  <td>{{ $k->telp_ayah }}</td>
+                  <td>{{ $k->nama_ibu }}</td>
+                  <td>{{ $k->telp_ibu }}</td>
+                  <td>
+                    <!-- Bikin tombol edit dan delete -->
+                    <a href="{{ url('/keluarga/'. $k->id_keluarga.'/edit') }}" class="btn btn-sm btn-warning">edit</a>
+
+                    <form method="POST" action="{{ url('/keluarga/'.$k->id_keluarga) }}" >
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                    </form>
+                  </td>
+                </tr>
+              @endforeach
+            @else
+              <tr><td colspan="6" class="text-center">Data tidak ada</td></tr>
+            @endif
           </tbody>
       </table>
       </div>

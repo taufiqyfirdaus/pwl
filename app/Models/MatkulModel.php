@@ -10,4 +10,10 @@ class MatkulModel extends Model
     use HasFactory;
     protected $table = 'matkul';
     protected $primaryKey = 'id_matkul';
+    protected $fillable = [
+        'nama_matkul',
+        'nama_dosen',
+        'prodi',
+        'jurusan',
+    ];
 }

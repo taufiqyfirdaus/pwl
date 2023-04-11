@@ -56,24 +56,24 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="/hobi" class="nav-link">
-            <i class="nav-icon fas fa-align-left"></i>
+          <a href="{{ url('/hobi') }}" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
             <p>
               Hobi
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/keluarga" class="nav-link">
-            <i class="nav-icon fas fa-align-left"></i>
+          <a href="{{ url('/keluarga') }}" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
             <p>
               Keluarga
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="/matkul" class="nav-link">
-            <i class="nav-icon fas fa-align-left"></i>
+          <a href="{{ url('/matkul') }}" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
             <p>
               Mata Kuliah
             </p>

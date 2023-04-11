@@ -8,12 +8,6 @@
         <div class="col-sm-6">
           <h1></h1>
         </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Blank Page</li>
-          </ol>
-        </div>
       </div>
     </div><!-- /.container-fluid -->
   </section>
@@ -24,7 +18,7 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Mata Kuliah</h3>
+        <h3 class="card-title">Hobi</h3>
 
         <div class="card-tools">
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -36,28 +30,28 @@
         </div>
       </div>
       <div class="card-body">
-      <table class="table table-bordered tabel-hover">
-      <thead>
-        <tr>
-          <th>Id Mata Kuliah</th>
-          <th>Nama</th>
-          <th>Dosen</th>
-          <th>Prodi</th>
-          <th>Jurusan</th>
-        </tr>
-        </thead>
-        <tbody>
-          @foreach ($matkul as $m)
-          <tr>
-            <td>{{ $m->id_matkul }}</td>
-            <td>{{ $m->nama_matkul }}</td>
-            <td>{{ $m->nama_dosen }}</td>
-            <td>{{ $m->prodi }}</td>
-            <td>{{ $m->jurusan }}</td>
-          </tr>
-          @endforeach
-          </tbody>
-      </table>
+        <form method="POST" action="{{ $url_form }}">
+            @csrf
+            {!! (isset($hbi))? method_field('PUT') : '' !!}
+
+            <div class="form-gorup">
+                <label>Nama</label>
+                <input class="form-control @error('nama') is-invalid @enderror" value="{{ isset($hbi)? $hbi->nama
+                 : old('nama') }}" name="nama" type="text">
+                @error('nama')
+                <span class="error invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+            <div class="form-gorup">
+                <label>Hobi</label>
+                <input class="form-control @error('nama_hobi') is-invalid @enderror" value="{{ isset($hbi)? $hbi->nama_hobi
+                 : old('nama_hobi') }}" name="nama_hobi" type="text">
+                @error('nama_hobi')
+                <span class="error invalid-feedback">{{ $message }}</span>
+                @enderror
+            </div>
+            <button type="submit" class="btn btn-sm btn-success my-2">Submit</button>
+        </form>
       </div>
       <!-- /.card-body -->
       <div class="card-footer">
