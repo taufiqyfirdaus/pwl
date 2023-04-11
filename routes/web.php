@@ -17,6 +17,7 @@ use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MatkulController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\Auth\LoginController;
 // use App\Http\Controllers\Auth\RegisterController;
 
@@ -85,5 +86,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/hobi', [HobiController::class, 'index']);
     Route::get('/keluarga', [KeluargaController::class, 'index']);
     Route::get('/matkul', [MatkulController::class, 'index']);
+
+    Route::resource('/mahasiswa', MahasiswaController::class);
 });
 
