@@ -125,7 +125,7 @@ class MahasiswaController extends Controller
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
         $mahasiswa->alamat = $request->get('alamat');
         $mahasiswa->hp = $request->get('hp');
-
+ 
         $kelas = new KelasModel;
         $kelas->id = $request->get('kelas');
 
