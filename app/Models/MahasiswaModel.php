@@ -13,14 +13,19 @@ class MahasiswaModel extends Model
     // protected $keyType = 'int';
     protected $fillable = [
         'nim', 
-        'nama',
+        'nama', 
         'jk',
         'tempat_lahir',
         'tanggal_lahir',
         'alamat',
         'hp'
     ];
+    protected $guarded = ['id'];
     public function kelas(){
         return $this->belongsTo(KelasModel::class);
+    }
+    public function matakuliah()
+    {
+        return $this->belongsToMany(MataKuliahModel::class, 'mahasiswa_matakuliah', 'mahasiswa_id', 'matakuliah_id')->withPivot('nilai');
     }
 }

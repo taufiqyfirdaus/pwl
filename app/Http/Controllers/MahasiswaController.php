@@ -150,4 +150,13 @@ class MahasiswaController extends Controller
         return redirect('mahasiswa')
         ->with('success', 'Mahasiswa Berhasil Dihapus');
     }
+    public function showKhs(MahasiswaModel $mahasiswa, $id)
+    {
+        $mahasiswa = MahasiswaModel::with('kelas', 'matakuliah')->find($id);
+        $khs = $mahasiswa->matakuliah()->withPivot('nilai')->get();
+        return view('mahasiswa.khs', [
+            'mahasiswa' => $mahasiswa,
+            'khs' => $khs
+        ]);
+    }
 }

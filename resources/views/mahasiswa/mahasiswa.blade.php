@@ -46,7 +46,7 @@
               <th>Kelas</th>
               <th>Action</th>
             </tr>
-          </thead>
+          </thead> 
           <tbody>
             @if($mhs->count() > 0)
               @foreach($mhs as $i => $m)
@@ -68,6 +68,8 @@
                       @method('DELETE')
                       <button type="submit" class="btn btn-sm btn-danger">hapus</button>
                     </form>
+
+                    <a href="{{ url('/mahasiswa/'. $m->id.'/khs') }}" class="btn btn-sm btn-primary">nilai</a>
                   </td>
                 </tr>
               @endforeach

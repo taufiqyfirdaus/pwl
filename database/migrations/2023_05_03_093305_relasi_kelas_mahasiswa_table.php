@@ -19,7 +19,7 @@ class RelasiKelasMahasiswaTable extends Migration
             $table->foreign('kelas_id')->references('id')->on('kelas');//tambahkan foreign key di kolom kelas_id
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      *

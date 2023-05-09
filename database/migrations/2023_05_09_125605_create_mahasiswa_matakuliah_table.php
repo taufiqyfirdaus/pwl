@@ -13,16 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('matakuliah', function (Blueprint $table) {
+        Schema::create('mahasiswa_matakuliah', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_matkul', 30);
-            $table->integer('sks');
-            $table->integer('jam');
-            $table->string('semester', 25);
+            $table->unsignedBigInteger('mahasiswa_id');
+            $table->unsignedBigInteger('matakuliah_id');
+            $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa');
+            $table->foreign('matakuliah_id')->references('id')->on('matakuliah');
+            $table->string('nilai', 2)->nullable();
             $table->timestamps();
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matakuliah');
+        Schema::dropIfExists('mahasiswa_matakuliah');
     }
 };
