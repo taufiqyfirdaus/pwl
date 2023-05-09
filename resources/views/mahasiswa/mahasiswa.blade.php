@@ -43,6 +43,7 @@
               <th>Tempat Lahir</th>
               <th>Tanggal Lahir</th>
               <th>No.HP</th>
+              <th>Kelas</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -57,6 +58,7 @@
                   <td>{{$m->tempat_lahir}}</td>
                   <td>{{$m->tanggal_lahir}}</td>
                   <td>{{$m->hp}}</td>
+                  <td>{{$m->kelas->nama_kelas}}</td>
                   <td>
                     <!-- Bikin tombol edit dan delete -->
                     <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>

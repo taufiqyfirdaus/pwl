@@ -34,7 +34,7 @@
             @csrf
             {!! (isset($mhs))? method_field('PUT') : '' !!}
 
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Nim</label>
                 <input class="form-control @error('nim') is-invalid @enderror" value="{{ isset($mhs)? $mhs->nim : old('nim') }}" name="nim" 
                 type="text">
@@ -42,7 +42,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Nama</label>
                 <input class="form-control @error('nama') is-invalid @enderror" value="{{ isset($mhs)? $mhs->nama : old('nama') }}" name="nama" 
                 type="text">
@@ -65,7 +65,7 @@
                       </div>
                 </div>
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Tempat Lahir</label>
                 <input class="form-control @error('tempat_lahir') is-invalid @enderror" value="{{ isset($mhs)? $mhs->tempat_lahir : 
                 old('tempat_lahir') }}" name="tempat_lahir" type="text">
@@ -73,7 +73,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Tanggal Lahir</label>
                 <input class="form-control @error('tanggal_lahir') is-invalid @enderror" value="{{ isset($mhs)? $mhs->tanggal_lahir : 
                 old('tanggal_lahir') }}" name="tanggal_lahir" type="date">
@@ -81,7 +81,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Alamat</label>
                 <input class="form-control @error('alamat') is-invalid @enderror" value="{{ isset($mhs)? $mhs->alamat : old('alamat') }}" 
                 name="alamat" type="text">
@@ -89,13 +89,21 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>No. HP</label>
                 <input class="form-control @error('hp') is-invalid @enderror" value="{{ isset($mhs)? $mhs->hp : old('hp') }}" name="hp" 
                 type="text">
                 @error('hp')
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
+            </div>
+            <div class="form-group">
+                <label>Kelas</label>
+                <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas" >
+                  @foreach ($kelas as $kls)
+                    <option value="{{$kls->id}}">{{$kls->nama_kelas}}</option>
+                  @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-sm btn-success my-2">Submit</button>
         </form>

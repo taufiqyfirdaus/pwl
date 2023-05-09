@@ -34,7 +34,7 @@
             @csrf
             {!! (isset($klg))? method_field('PUT') : '' !!}
 
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Nama</label>
                 <input class="form-control @error('nama') is-invalid @enderror" value="{{ isset($klg)? $klg->nama
                  : old('nama') }}" name="nama" type="text">
@@ -42,7 +42,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Ayah</label>
                 <input class="form-control @error('nama_ayah') is-invalid @enderror" value="{{ isset($klg)? $klg->nama_ayah
                  : old('nama_ayah') }}" name="nama_ayah" type="text">
@@ -50,7 +50,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>No. HP Ayah</label>
                 <input class="form-control @error('telp_ayah') is-invalid @enderror" value="{{ isset($klg)? $klg->telp_ayah
                  : old('telp_ayah') }}" name="telp_ayah" type="text">
@@ -58,7 +58,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Ibu</label>
                 <input class="form-control @error('nama_ibu') is-invalid @enderror" value="{{ isset($klg)? $klg->nama_ibu
                  : old('nama_ibu') }}" name="nama_ibu" type="text">
@@ -66,7 +66,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>No. HP Ibu</label>
                 <input class="form-control @error('telp_ibu') is-invalid @enderror" value="{{ isset($klg)? $klg->telp_ibu
                 : old('telp_ibu') }}" name="telp_ibu" type="text">

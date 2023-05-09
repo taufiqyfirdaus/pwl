@@ -34,7 +34,7 @@
             @csrf
             {!! (isset($hbi))? method_field('PUT') : '' !!}
 
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Nama</label>
                 <input class="form-control @error('nama') is-invalid @enderror" value="{{ isset($hbi)? $hbi->nama
                  : old('nama') }}" name="nama" type="text">
@@ -42,7 +42,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Hobi</label>
                 <input class="form-control @error('nama_hobi') is-invalid @enderror" value="{{ isset($hbi)? $hbi->nama_hobi
                  : old('nama_hobi') }}" name="nama_hobi" type="text">

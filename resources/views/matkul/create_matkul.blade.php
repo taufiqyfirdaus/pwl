@@ -34,7 +34,7 @@
             @csrf
             {!! (isset($mkl))? method_field('PUT') : '' !!}
 
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Nama Mata Kuliah</label>
                 <input class="form-control @error('nama_matkul') is-invalid @enderror" value="{{ isset($mkl)? $mkl->nama_matkul
                  : old('nama_matkul') }}" name="nama_matkul" type="text">
@@ -42,7 +42,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Dosen</label>
                 <input class="form-control @error('nama_dosen') is-invalid @enderror" value="{{ isset($mkl)? $mkl->nama_dosen
                  : old('nama_dosen') }}" name="nama_dosen" type="text">
@@ -50,7 +50,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Prodi</label>
                 <input class="form-control @error('prodi') is-invalid @enderror" value="{{ isset($mkl)? $mkl->prodi
                  : old('prodi') }}" name="prodi" type="text">
@@ -58,7 +58,7 @@
                 <span class="error invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="form-gorup">
+            <div class="form-group">
                 <label>Jurusan</label>
                 <input class="form-control @error('jurusan') is-invalid @enderror" value="{{ isset($mkl)? $mkl->jurusan
                  : old('jurusan') }}" name="jurusan" type="text">
