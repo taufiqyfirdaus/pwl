@@ -94,5 +94,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
     Route::resource('/articles', ArticleController::class);
+
+    Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
 });
 
