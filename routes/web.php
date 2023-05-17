@@ -93,5 +93,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/matkul', MatkulController::class);
 
     Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
+    Route::resource('/articles', ArticleController::class);
 });
 
