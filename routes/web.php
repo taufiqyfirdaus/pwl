@@ -91,6 +91,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/hobi', HobiController::class);
     Route::resource('/keluarga', KeluargaController::class);
     Route::resource('/matkul', MatkulController::class);
+    
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 
     Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
     Route::resource('/articles', ArticleController::class);
